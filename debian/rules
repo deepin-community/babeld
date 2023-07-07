@@ -1,4 +1,14 @@
 #!/usr/bin/make -f
 
+DESTDIR := debian/babeld
+
 %:
 	dh $@
+
+export BLAKE_SRCS=
+export BLAKE_CFLAGS=
+export LDLIBS=-lb2
+
+override_dh_auto_install:
+	dh_auto_install -- TARGET=$(DESTDIR) PREFIX=/usr
+	mv $(DESTDIR)/usr/bin $(DESTDIR)/usr/sbin
