@@ -1,0 +1,9 @@
+babeld (1.1.0-1) unstable; urgency=low
+
+    INCOMPATIBLE CHANGE: the UDP port number and multicast group have been
+    changed to be the ones allocated by IANA. In order to make older
+    versions of babeld interoperate with this version, you need to add the
+    following to babeld's command line: -p 6697 -m ff02:0:0:0:0:0:1:6
+
+ -- Stéphane Glondu <glondu@debian.org>  Sat, 12 Feb 2011 12:20:37 +0100
+

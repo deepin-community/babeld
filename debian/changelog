@@ -1,5 +1,196 @@
-template-repository (1.0-1) unstable; urgency=medium
+babeld (1.12.1-1) unstable; urgency=medium
 
-  * Initial release
+  [ Ondřej Nový ]
+  * d/copyright: Use https protocol in Format field.
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+  [ Benda Xu ]
+  * New upstream release. (Closes: #1010610)
+
+  [ Daniel Gröber ]
+  * Use the system BLAKE2 library.
+
+ -- Benda Xu <orv@debian.org>  Sun, 09 Oct 2022 21:39:47 +0800
+
+babeld (1.9.1-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Benda Xu <heroxbd@gentoo.org>  Sun, 26 Jan 2020 13:53:14 +0800
+
+babeld (1.8.3-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Benda Xu <heroxbd@gentoo.org>  Tue, 25 Sep 2018 08:33:24 +0800
+
+babeld (1.8.2-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Benda Xu <heroxbd@gentoo.org>  Thu, 17 May 2018 20:27:56 +0900
+
+babeld (1.8.1-1) unstable; urgency=medium
+
+  * New upstream release (Closes: #884493).
+  * Add myself as uploader.  Thanks kilobyte!
+  * Update Vcs fields to salsa.
+  * Bump standards to 4.1.4.
+  * Change package priority to optional.
+  * Depend on lsb-base.
+
+ -- Benda Xu <heroxbd@gentoo.org>  Sat, 14 Apr 2018 11:18:07 +0900
+
+babeld (1.8.0-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Benda Xu <heroxbd@gentoo.org>  Mon, 25 Dec 2017 18:31:03 +0900
+
+babeld (1.7.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * Check presence of babeld.conf in init script (Closes: #797413)
+  * Update Vcs-*
+
+ -- Stéphane Glondu <glondu@debian.org>  Sun, 07 Feb 2016 16:10:50 +0100
+
+babeld (1.6.1-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Stéphane Glondu <glondu@debian.org>  Sat, 20 Jun 2015 11:33:19 +0200
+
+babeld (1.6.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * debian/watch: add checking of upstream signature
+  * Bump Standards-Version to 3.9.6 (no changes)
+
+ -- Stéphane Glondu <glondu@debian.org>  Sat, 02 May 2015 12:00:22 +0200
+
+babeld (1.5.1-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Stéphane Glondu <glondu@debian.org>  Sun, 06 Jul 2014 22:45:10 +0200
+
+babeld (1.5.0-1) unstable; urgency=medium
+
+  * New upstream release (Closes: #751436)
+  * Bump Standards-Version to 3.9.5
+
+ -- Stéphane Glondu <glondu@debian.org>  Fri, 13 Jun 2014 13:14:34 +0200
+
+babeld (1.4.3-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Stéphane Glondu <glondu@debian.org>  Fri, 22 Nov 2013 00:12:28 +0100
+
+babeld (1.4.2-2) unstable; urgency=low
+
+  * Suggest ahcpd instead of recommending it (Closes: #712820)
+
+ -- Stéphane Glondu <glondu@debian.org>  Thu, 20 Jun 2013 07:25:56 +0200
+
+babeld (1.4.2-1) unstable; urgency=low
+
+  * New upstream release
+  * Use canonical URLs in Vcs-* fields
+
+ -- Stéphane Glondu <glondu@debian.org>  Wed, 19 Jun 2013 21:25:52 +0200
+
+babeld (1.4.1-1) unstable; urgency=low
+
+  * New upstream release (Closes: #709919)
+  * Add logrotate support (Closes: #659618)
+  * Switch debian/copyright to format version 1.0
+  * Bump Standards-Version to 3.9.4
+  * Bump debhelper compat level to 9
+
+ -- Stéphane Glondu <glondu@debian.org>  Sun, 26 May 2013 21:03:16 +0200
+
+babeld (1.3.1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Stéphane Glondu <glondu@debian.org>  Sat, 11 Feb 2012 15:35:39 +0100
+
+babeld (1.3.0-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Stéphane Glondu <glondu@debian.org>  Thu, 08 Dec 2011 20:49:12 +0100
+
+babeld (1.2.1-1) unstable; urgency=low
+
+  * New upstream release
+  * Updated description suggested by Boris Ganne
+
+ -- Stéphane Glondu <glondu@debian.org>  Wed, 23 Nov 2011 07:49:31 +0100
+
+babeld (1.2.0-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Stéphane Glondu <glondu@debian.org>  Sun, 11 Sep 2011 18:27:01 +0200
+
+babeld (1.1.3-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Stéphane Glondu <glondu@debian.org>  Thu, 04 Aug 2011 23:01:40 +0200
+
+babeld (1.1.2-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Stéphane Glondu <glondu@debian.org>  Thu, 28 Jul 2011 23:26:01 +0200
+
+babeld (1.1.1-1) unstable; urgency=low
+
+  * New upstream release
+  * Add mention to RFC 6126 in package description
+  * Bump Standards-Version to 3.9.2 (no changes)
+
+ -- Stéphane Glondu <glondu@debian.org>  Sat, 21 May 2011 00:44:27 +0200
+
+babeld (1.1.0-1) unstable; urgency=low
+
+  * New upstream release
+  * Add NEWS file to document incompatible changes
+  * Bump Standards-Version to 3.9.1
+  * Bump debhelper compat level to 8
+
+ -- Stéphane Glondu <glondu@debian.org>  Sat, 12 Feb 2011 12:26:16 +0100
+
+babeld (1.0.1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Stéphane Glondu <glondu@debian.org>  Sun, 02 May 2010 10:32:34 +0200
+
+babeld (1.0-1) unstable; urgency=low
+
+  * New upstream release
+  * Use /var/lib/babeld/state for the state
+
+ -- Stéphane Glondu <glondu@debian.org>  Sun, 25 Apr 2010 17:24:12 +0200
+
+babeld (0.98-1) unstable; urgency=low
+
+  * New upstream release (Closes: #568906)
+  * Install a default configuration file (Closes: #545072)
+  * Add an initscript (Closes: #545071)
+  * Bump Standards-Version to 3.8.4 (no changes)
+  * Add missing copyright holders
+  * Switch to 3.0 (quilt)
+  * Upload to unstable
+
+ -- Stéphane Glondu <glondu@debian.org>  Sun, 11 Apr 2010 10:33:41 +0200
+
+babeld (0.96-1) experimental; urgency=low
+
+  * Initial release (Closes: #543377)
+
+ -- Stéphane Glondu <glondu@debian.org>  Fri, 28 Aug 2009 01:57:23 +0200

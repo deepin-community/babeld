@@ -1,0 +1,3 @@
+version=3
+opts=pgpsigurlmangle=s/$/.asc/ \
+https://www.irif.fr/~jch/software/files/ babeld-(.*).tar.gz

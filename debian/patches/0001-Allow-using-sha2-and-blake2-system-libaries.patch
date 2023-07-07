@@ -1,0 +1,70 @@
+From 7a9f8797a087b0cea6851df0aa346651acabbfb7 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Daniel=20Gr=C3=B6ber?= <dxld@darkboxed.org>
+Date: Fri, 8 Apr 2022 14:42:10 +0200
+Subject: [PATCH 1/2] Allow using sha2 and blake2 system libaries
+
+Using ?= to assign LDLIBS and the new BLAKE_* SHA2_* vars allows overriding
+them from the environment and use system libraries instead of the bundled
+ones.
+
+To make sure includes are picked up from the system instead of the vendor
+copies we replace #include "" with #include <> and use -I in CFLAGS.
+
+Finally since keeping SRCS and OBJS in sync is tedious maximus I replace
+OBJS with a .c=.o substitution.
+---
+ Makefile | 17 +++++++++++------
+ hmac.c   |  4 ++--
+ 2 files changed, 13 insertions(+), 8 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index bae7f6a..e28d5d1 100644
+--- a/Makefile
++++ b/Makefile
+@@ -5,17 +5,22 @@ CDEBUGFLAGS = -Os -g -Wall
+ 
+ DEFINES = $(PLATFORM_DEFINES)
+ 
+-CFLAGS = $(CDEBUGFLAGS) $(DEFINES) $(EXTRA_DEFINES)
++SHA2_SRCS ?= rfc6234/sha224-256.c
++SHA2_CFLAGS ?= -I.
+ 
+-LDLIBS = -lrt
++BLAKE_SRCS ?= BLAKE2/ref/blake2s-ref.c
++BLAKE_CFLAGS ?= -IBLAKE2/ref
++
++LDLIBS ?= -lrt
++
++CFLAGS = $(CDEBUGFLAGS) $(DEFINES) $(EXTRA_DEFINES) \
++         $(SHA2_CFLAGS) $(BLAKE_CFLAGS)
+ 
+ SRCS = babeld.c net.c kernel.c util.c interface.c source.c neighbour.c \
+        route.c xroute.c message.c resend.c configuration.c local.c \
+-       hmac.c rfc6234/sha224-256.c BLAKE2/ref/blake2s-ref.c
++       hmac.c $(SHA2_SRCS) $(BLAKE_SRCS)
+ 
+-OBJS = babeld.o net.o kernel.o util.o interface.o source.o neighbour.o \
+-       route.o xroute.o message.o resend.o configuration.o local.o \
+-       hmac.o rfc6234/sha224-256.o BLAKE2/ref/blake2s-ref.o
++OBJS = $(SRCS:.c=.o)
+ 
+ babeld: $(OBJS)
+ 	$(CC) $(CFLAGS) $(LDFLAGS) -o babeld $(OBJS) $(LDLIBS)
+diff --git a/hmac.c b/hmac.c
+index 2a6cc8f..69abe9b 100644
+--- a/hmac.c
++++ b/hmac.c
+@@ -27,8 +27,8 @@ THE SOFTWARE.
+ #include <sys/time.h>
+ #include <netinet/in.h>
+ 
+-#include "rfc6234/sha.h"
+-#include "BLAKE2/ref/blake2.h"
++#include <rfc6234/sha.h>
++#include <blake2.h>
+ 
+ #include "babeld.h"
+ #include "interface.h"
+-- 
+2.30.2
+
